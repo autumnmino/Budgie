@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Welcome to Budgie</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="form">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" formControlName="email" [(ngModel)]="email" keyup="login" [class.invalid]="!form.controls.email.valid"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" formControlName="password" [class.invalid]="!form.controls.password.valid"></ion-input>
+    </ion-item>
+    <br/>
+  </ion-list>
+  <div>
+    <button ion-button color="primary" block (click)="login()">Login</button>
+  </div>
+  <br/>
+  <div>
+    <button ion-button color="dark" block (click)="register()">Register</button>
+  </div>
+  </form>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Spending Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background-img">
+  <ion-card class="trans-background">
+    <ion-list>
+      <ion-item-sliding *ngFor="let item of amounts; let i = index">
+        <ion-item (click)="edit(i)">
+          <ion-icon name="{{items[types[i]]}}" item-start></ion-icon>
+          <h1 item-end>${{amounts[i]}}</h1>
+          <h2>{{descs[i]}}</h2>
+          <h3>{{dates[i].toLocaleString()}}</h3>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="delete(i)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Customise</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background-img">
+  <ion-card class="trans-background">
+    <ion-card-content>
+      <ion-item>
+        <ion-label color="dark">Category</ion-label>
+        <ion-select [(ngModel)]="categoryItem" interface="popover">
+          <ion-option *ngFor="let type of this.valuesFunctions.types">{{type}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">Amount</ion-label>
+        <ion-input type="number" [(ngModel)]="amount" text-end></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">Description</ion-label>
+        <ion-input type="text" [(ngModel)]="description" text-end></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="timestamp" text-end></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">Time</ion-label>
+        <ion-datetime displayFormat="hh:mm:ss A" [(ngModel)]="timestamp" text-end></ion-datetime>
+      </ion-item>
+      <button ion-button block (click)="submit()">{{submitButton}}</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

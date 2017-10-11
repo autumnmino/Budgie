@@ -1,5 +1,8 @@
 {
   "name": "Budgie",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "0dc66150",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

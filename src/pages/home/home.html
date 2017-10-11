@@ -1,14 +1,49 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Budgie
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="background-img">
+  <ion-card class="trans-background" (click)="viewDetails('day')">
+    <ion-card-header>
+      Today You've Spent
+    </ion-card-header>
+    <ion-card-content class="spentAmount">
+    ${{todayTotal}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="trans-background">
+    <ion-card-header (click)="viewDetails('week')">
+      Weekly Spending Summary
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #doughnutCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="trans-background" (click)="viewDetails('all')">
+    <ion-card-header>
+      History Spends
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab right bottom #fab>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="primary" *ngFor="let item of items; let i = index" (click)="addSpend(i, fab)"><ion-icon name="{{ item }}"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="left">
+      <button ion-fab color="light" (click)="customise()"><ion-icon name="create"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <br/><br/><br/><br/>
 </ion-content>
